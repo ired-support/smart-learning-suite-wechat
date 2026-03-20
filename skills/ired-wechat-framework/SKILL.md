@@ -1,9 +1,27 @@
 ---
 name: ired-wechat-framework
-description: This skill assists with BLE (Bluetooth Low Energy) communication code generation and troubleshooting for iREd HealthKit medical devices in WeChat Mini Program development. Use this skill when working with Bluetooth pairing, connection, data reading (e.g., temperature, SpO2, heart rate, blood pressure), and disconnection for a thermometer, oximeter, or blood pressure monitor (bloodPressureMonitor). It provides unified API (Application Programming Interface) calling conventions (such as initialise, pairDevice, connectDevice, setCallback, etc.), along with device-specific data parsing formats and error handling logic.
+description: This skill assists with SDK (Software Development Kit) installation, BLE (Bluetooth Low Energy) communication code generation, and troubleshooting for iREd HealthKit medical and fitness devices in WeChat Mini Program development. Use this skill when working with downloading the latest SDK, configuring permissions, Bluetooth pairing, connection, data reading, and disconnection for devices including a thermometer, oximeter, blood pressure monitor (bloodPressureMonitor), scale, jump rope, and heart rate monitor. It provides unified API (Application Programming Interface) calling conventions (such as initialise, pairDevice, connectDevice, setCallback, etc.), along with device-specific data parsing formats and error handling logic.
 ---
 
 # Instruction for using iREd BLE module in WeChat Mini Program
+
+### Download SDK
+
+```bash
+latest_tag=$(curl -s https://api.github.com/repos/ired-support/smart-learning-suite-wechat/tags | jq -r '.[0].name')
+
+curl -L -o latest_code.zip "https://github.com/ired-support/smart-learning-suite-wechat/archive/refs/tags/${latest_tag}.zip"
+
+unzip latest_code.zip
+
+cp -r "smart-learning-suite-wechat-${latest_tag#v}/ired" ./
+
+rm -rf latest_code.zip "smart-learning-suite-wechat-${latest_tag#v}"
+```
+
+
+
+
 
 ### app.json Configuration
 
